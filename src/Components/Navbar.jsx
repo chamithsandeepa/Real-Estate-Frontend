@@ -24,13 +24,16 @@ const Navbar = () => {
           <a className="cursor-pointer hover:text-gray-400" href="#Header">
             Home
           </a>
-          <a className="cursor-pointer hover:text-gray-400" href="#Header">
+          <a className="cursor-pointer hover:text-gray-400" href="#About">
             About
           </a>
-          <a className="cursor-pointer hover:text-gray-400" href="#Header">
+          <a className="cursor-pointer hover:text-gray-400" href="#Projects">
             Projects
           </a>
-          <a className="cursor-pointer hover:text-gray-400" href="#Header">
+          <a
+            className="cursor-pointer hover:text-gray-400"
+            href="#Testimonials"
+          >
             Testimonials
           </a>
         </ul>
