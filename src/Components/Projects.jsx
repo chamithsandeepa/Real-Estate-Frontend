@@ -5,29 +5,29 @@ import { useState } from "react";
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-    const [cardsToShow, setCardsToShow] = useState(1);
-    
-      useEffect(() => {
-        const updateCardsToShow = () => {
-          if (window.innerWidth >= 1024) {
-            setCardsToShow(projectsData.length);
-          } else {
-            setCardsToShow(1);
-          }
-        };
-        updateCardsToShow();
+  const [cardsToShow, setCardsToShow] = useState(1);
 
-        window.addEventListener("resize", updateCardsToShow);
-        return () => window.removeEventListener("resize", updateCardsToShow);
-      }, []);
+  useEffect(() => {
+    const updateCardsToShow = () => {
+      if (window.innerWidth >= 1024) {
+        setCardsToShow(projectsData.length);
+      } else {
+        setCardsToShow(1);
+      }
+    };
+    updateCardsToShow();
+
+    window.addEventListener("resize", updateCardsToShow);
+    return () => window.removeEventListener("resize", updateCardsToShow);
+  }, []);
 
   const nextProject = () => {
-    setCurrentIndex((currentIndex) => (currentIndex + 1) % projectsData.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projectsData.length);
   };
 
   const prevProject = () => {
-    setCurrentIndex((currentIndex) =>
-      currentIndex === 0 ? projectsData.length - 1 : currentIndex - 1
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? projectsData.length - 1 : currentIndex - 1
     );
   };
 
@@ -89,7 +89,8 @@ const Projects = () => {
                       {project.title}
                     </h2>
                     <p className="text-gray-500 text-sm">
-                      {project.price} <span> | </span> {project.location}
+                      {project.price} <span className="px-1"> | </span>{" "}
+                      {project.location}
                     </p>
                   </div>
                 </div>
